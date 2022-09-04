@@ -1,5 +1,7 @@
 let playerAtack = "";
 let enemyAtack = "";
+let petLife = 3;
+let enemyLife = 3;
 
 function startGame() {
     let btnPetPlayer = document.getElementById('btn-pet');
@@ -112,17 +114,27 @@ function setEnemyAtack() {
 }
 
 function combat() {
+    let spanPetLife = document.getElementById('pet-life');
+    let spanEnemyLife = document.getElementById('enemy-life');
+
     if (playerAtack == enemyAtack) {
         createMessage("IT'S A TIE 😕");
     } else if (playerAtack == "FIRE" && enemyAtack == "GROUND") {
         createMessage("YOU WON 🎉");
+        enemyLife--;
     } else if (playerAtack == "WATER" && enemyAtack == "FIRE") {
         createMessage("YOU WON 🎉");
+        enemyLife--;
     } else if (playerAtack == "GROUND" && enemyAtack == "WATER") {
         createMessage("YOU WON 🎉");
+        enemyLife--;
     } else {
         createMessage("YOU LOSE 😢");
+        petLife--;
     }
+
+    spanPetLife.innerHTML = petLife;
+    spanEnemyLife.innerHTML = enemyLife;
 }
 
 function createMessage(result) {
