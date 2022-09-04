@@ -4,6 +4,11 @@ let petLife = 3;
 let enemyLife = 3;
 
 function startGame() {
+    let sectionSelectAtack = document.getElementById('select-atack');
+    sectionSelectAtack.style.display = 'none';
+    let sectionRestart = document.getElementById('restart');
+    sectionRestart.style.display = 'none';
+
     let btnPetPlayer = document.getElementById('btn-pet');
     btnPetPlayer.addEventListener('click', selectPlayerPet);
 
@@ -13,6 +18,9 @@ function startGame() {
     btnWater.addEventListener('click', waterAtack);
     let btnGround = document.getElementById('btn-ground');
     btnGround.addEventListener('click', groundAtack);
+
+    let btnRestart = document.getElementById('btn-restart');
+    btnRestart.addEventListener('click', restartGame);
 }
 
 function selectPlayerPet() {
@@ -74,6 +82,12 @@ function selectEnemyPet() {
             alert("There was an error selecting enemy's pet");
             break;
     }
+
+    let sectionSelectAtack = document.getElementById('select-atack');
+    sectionSelectAtack.style.display = 'block';
+
+    let sectionSelectPet = document.getElementById('select-pet');
+    sectionSelectPet.style.display = 'none';
 }
 
 function fireAtack() {
@@ -159,6 +173,23 @@ function createFinalMessage(finalResult) {
     let paragraph = document.createElement('P');
     paragraph.innerHTML = finalResult;
     messageSection.appendChild(paragraph);
+    disableAtackButtons();
+}
+
+function restartGame() {
+    location.reload();
+}
+
+function disableAtackButtons() {
+    let btnFire = document.getElementById('btn-fire');
+    btnFire.disabled = true
+    let btnWater = document.getElementById('btn-water');
+    btnWater.disabled = true
+    let btnGround = document.getElementById('btn-ground');
+    btnGround.disabled = true
+
+    let sectionRestart = document.getElementById('restart');
+    sectionRestart.style.display = 'block';
 }
 
 function random(min, max) {
