@@ -135,12 +135,29 @@ function combat() {
 
     spanPetLife.innerHTML = petLife;
     spanEnemyLife.innerHTML = enemyLife;
+
+    checkLifes();
+}
+
+function checkLifes() {
+    if (enemyLife == 0) {
+        createFinalMessage("YOU WON! CONGRATULATIONS 🎉🎉🎉");
+    } else if (petLife == 0) {
+        createFinalMessage("YOU LOSE! 😢😢😢");
+    }
 }
 
 function createMessage(result) {
     let messageSection = document.getElementById('messages');
     let paragraph = document.createElement('P');
     paragraph.innerHTML = `Your pet atacked with ${playerAtack}, your enemy's pet atacked with ${enemyAtack} - ${result}`;
+    messageSection.appendChild(paragraph);
+}
+
+function createFinalMessage(finalResult) {
+    let messageSection = document.getElementById('messages');
+    let paragraph = document.createElement('P');
+    paragraph.innerHTML = finalResult;
     messageSection.appendChild(paragraph);
 }
 
