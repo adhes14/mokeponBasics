@@ -107,6 +107,29 @@ function setEnemyAtack() {
             alert("There was an error setting enemy's atack")
             break;
     }
+
+    combat();
+}
+
+function combat() {
+    if (playerAtack == enemyAtack) {
+        createMessage("IT'S A TIE 😕");
+    } else if (playerAtack == "FIRE" && enemyAtack == "GROUND") {
+        createMessage("YOU WON 🎉");
+    } else if (playerAtack == "WATER" && enemyAtack == "FIRE") {
+        createMessage("YOU WON 🎉");
+    } else if (playerAtack == "GROUND" && enemyAtack == "WATER") {
+        createMessage("YOU WON 🎉");
+    } else {
+        createMessage("YOU LOSE 😢");
+    }
+}
+
+function createMessage(result) {
+    let messageSection = document.getElementById('messages');
+    let paragraph = document.createElement('P');
+    paragraph.innerHTML = `Your pet atacked with ${playerAtack}, your enemy's pet atacked with ${enemyAtack} - ${result}`;
+    messageSection.appendChild(paragraph);
 }
 
 function random(min, max) {
