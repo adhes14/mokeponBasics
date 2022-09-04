@@ -1,6 +1,16 @@
+let playerAtack = "";
+let enemyAtack = "";
+
 function startGame() {
-    let btnPetPlayer = document.getElementById('btn-pet')
-    btnPetPlayer.addEventListener('click', selectPlayerPet)
+    let btnPetPlayer = document.getElementById('btn-pet');
+    btnPetPlayer.addEventListener('click', selectPlayerPet);
+
+    let btnFire = document.getElementById('btn-fire');
+    btnFire.addEventListener('click', fireAtack);
+    let btnWater = document.getElementById('btn-water');
+    btnWater.addEventListener('click', waterAtack);
+    let btnGround = document.getElementById('btn-ground');
+    btnGround.addEventListener('click', groundAtack);
 }
 
 function selectPlayerPet() {
@@ -60,6 +70,41 @@ function selectEnemyPet() {
             break;
         default:
             alert("There was an error selecting enemy's pet");
+            break;
+    }
+}
+
+function fireAtack() {
+    playerAtack = "FIRE";
+    setEnemyAtack();
+}
+
+function waterAtack() {
+    playerAtack = "WATER";
+    setEnemyAtack();
+}
+
+function groundAtack() {
+    playerAtack = "GROUND";
+    setEnemyAtack();
+}
+
+function setEnemyAtack() {
+    let randonEnemyAtack = random(1, 3);
+
+    switch (randonEnemyAtack) {
+        case 1:
+            enemyAtack = "FIRE"
+            break;
+        case 2:
+            enemyAtack = "WATER"
+            break;
+        case 3:
+            enemyAtack = "GROUND"
+            break;
+    
+        default:
+            alert("There was an error setting enemy's atack")
             break;
     }
 }
