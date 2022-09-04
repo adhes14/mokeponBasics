@@ -11,6 +11,7 @@ function selectPlayerPet() {
     let inputLangostelvis = document.getElementById('langostelvis');
     let inputTucapalma = document.getElementById('tucapalma');
     let inputPydos = document.getElementById('pydos');
+    let spanPlayerPet = document.getElementById('player-pet');
 
     if (inputHipodoge.checked) {
         pet = "Hipodoge";
@@ -25,10 +26,11 @@ function selectPlayerPet() {
     } else if (inputPydos.checked) {
         pet = "Pydos";
     } else {
-        pet = "no one";
+        alert('you must select a pet');
+        return;
     }
 
-    alert("Pet selected: " + pet);
+    spanPlayerPet.innerHTML = pet;
 }
 
 
