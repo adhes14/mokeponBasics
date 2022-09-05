@@ -6,35 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOKEPON!</title>
     <script src="./js/mokepon.js"></script>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <h1>MOKEPON! 🔥💧🌱</h1>
-
     <section id="select-pet">
-        <h2>Choose your pet:</h2>
+        <h1 class="tittle">Mokepon</h1>
 
-        <label for="hipodoge">Hipodoge</label>
-        <input type="radio" name="pet" id="hipodoge">
+        <h2 class="subtittle">Choose your pet:</h2>
 
-        <label for="capipepo">Capipepo</label>
-        <input type="radio" name="pet" id="capipepo">
+        <div class="cards">
+            <label class="mokepon-card" for="hipodoge">
+                <p>Hipodoge</p>
+                <img src="./assets/mokepons_mokepon_capipepo_attack.webp" alt="mokepon">
+            </label>
+            <input type="radio" name="pet" id="hipodoge">
+    
+            <label class="mokepon-card" for="capipepo">
+                <p>Capipepo</p>
+                <img src="./assets/mokepons_mokepon_hipodoge_attack.webp" alt="mokepon">
+            </label>
+            <input type="radio" name="pet" id="capipepo">
+    
+            <label class="mokepon-card" for="ratigueya">
+                <p>Ratigueya</p>
+                <img src="./assets/mokepons_mokepon_ratigueya_attack.webp" alt="mokepon">
+            </label>
+            <input type="radio" name="pet" id="ratigueya">
+    
+            <label class="mokepon-card" for="langostelvis">
+                <p>Langostelvis</p>
+                <img src="./assets/mokepons_mokepon_capipepo_attack.webp" alt="mokepon">
+            </label>
+            <input type="radio" name="pet" id="langostelvis">
+    
+            <label class="mokepon-card" for="tucapalma">
+                <p>Tucapalma</p>
+                <img src="./assets/mokepons_mokepon_hipodoge_attack.webp" alt="mokepon">
+            </label>
+            <input type="radio" name="pet" id="tucapalma">
+    
+            <label class="mokepon-card" for="pydos">
+                <p>Pydos</p>
+                <img src="./assets/mokepons_mokepon_ratigueya_attack.webp" alt="mokepon">
+            </label>
+            <input type="radio" name="pet" id="pydos">
+        </div>
 
-        <label for="ratigueya">Ratigueya</label>
-        <input type="radio" name="pet" id="ratigueya">
-
-        <label for="langostelvis">Langostelvis</label>
-        <input type="radio" name="pet" id="langostelvis">
-
-        <label for="tucapalma">Tucapalma</label>
-        <input type="radio" name="pet" id="tucapalma">
-
-        <label for="pydos">Pydos</label>
-        <input type="radio" name="pet" id="pydos">
 
         <button id="btn-pet">Select</button>
     </section>
 
     <section id="select-atack">
+        <h1 class="tittle">MOKEPON! 🔥💧🌱</h1>
+
         <h2>Choose your atack:s</h2>
         <p>Your pet <span id="player-pet"></span> has <span id="pet-life">3</span> lifes</p>
         <p>Your enemy's pet <span id="enemy-pet"></span> has <span id="enemy-life">3</span> lifes</p>
