@@ -84,7 +84,7 @@ function selectEnemyPet() {
     }
 
     let sectionSelectAtack = document.getElementById('select-atack');
-    sectionSelectAtack.style.display = 'block';
+    sectionSelectAtack.style.display = 'flex';
 
     let sectionSelectPet = document.getElementById('select-pet');
     sectionSelectPet.style.display = 'none';
@@ -162,17 +162,28 @@ function checkLifes() {
 }
 
 function createMessage(result) {
-    let messageSection = document.getElementById('messages');
-    let paragraph = document.createElement('P');
-    paragraph.innerHTML = `Your pet atacked with ${playerAtack}, your enemy's pet atacked with ${enemyAtack} - ${result}`;
-    messageSection.appendChild(paragraph);
+    let resultP = document.getElementById('result');
+    let playerAtackDiv = document.getElementById('player-atack');
+    let enemyAtackDiv = document.getElementById('enemy-atack');
+
+    let playerAtackP = document.createElement('P');
+    let enemyAtackP = document.createElement('P');
+
+    resultP.innerHTML = result;
+    playerAtackP.innerHTML = playerAtack;
+    enemyAtackP.innerHTML = enemyAtack;
+
+    playerAtackDiv.appendChild(playerAtackP);
+    enemyAtackDiv.appendChild(enemyAtackP);
+
+    // let paragraph = document.createElement('P');
+    // paragraph.innerHTML = `Your pet atacked with ${playerAtack}, your enemy's pet atacked with ${enemyAtack} - ${result}`;
+    // messageSection.appendChild(paragraph);
 }
 
 function createFinalMessage(finalResult) {
-    let messageSection = document.getElementById('messages');
-    let paragraph = document.createElement('P');
-    paragraph.innerHTML = finalResult;
-    messageSection.appendChild(paragraph);
+    let resultP = document.getElementById('result');
+    resultP.innerHTML = finalResult;
     disableAtackButtons();
 }
 
