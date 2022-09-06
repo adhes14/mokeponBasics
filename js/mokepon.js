@@ -1,37 +1,59 @@
+const sectionSelectAtack = document.getElementById('select-atack');
+const sectionRestart = document.getElementById('restart');
+const btnPetPlayer = document.getElementById('btn-pet');
+const btnFire = document.getElementById('btn-fire');
+const btnWater = document.getElementById('btn-water');
+const btnGround = document.getElementById('btn-ground');
+const btnRestart = document.getElementById('btn-restart');
+const inputHipodoge = document.getElementById('hipodoge');
+const inputCapipepo = document.getElementById('capipepo');
+const inputRatigueya = document.getElementById('ratigueya');
+const inputLangostelvis = document.getElementById('langostelvis');
+const inputTucapalma = document.getElementById('tucapalma');
+const inputPydos = document.getElementById('pydos');
+const spanPlayerPet = document.getElementById('player-pet');
+const spanEnemyPet = document.getElementById('enemy-pet');
+const spanPetLife = document.getElementById('pet-life');
+const spanEnemyLife = document.getElementById('enemy-life');
+const resultP = document.getElementById('result');
+const playerAtackDiv = document.getElementById('player-atack');
+const enemyAtackDiv = document.getElementById('enemy-atack');
+
 let playerAtack = "";
 let enemyAtack = "";
 let petLife = 3;
 let enemyLife = 3;
 
+class Mokepon {
+    constructor(name, picture, life) {
+        this.name = name;
+        this.life = life;
+        this.picture = picture;
+    }
+}
+
+let Hipodoge = new Mokepon('Hipodoge', './assets/mokepons_mokepon_capipepo_attack.webp', 5);
+let Capipepo = new Mokepon('Capipepo', './assets/mokepons_mokepon_hipodoge_attack.webp', 5);
+let Ratigueya = new Mokepon('Ratigueya', './assets/mokepons_mokepon_ratigueya_attack.webp', 5);
+let Langostelvis = new Mokepon('Langostelvis', './assets/mokepons_mokepon_capipepo_attack.webp', 5);
+let Tucapalma = new Mokepon('Tucapalma', './assets/mokepons_mokepon_hipodoge_attack.webp', 5);
+let Pydos = new Mokepon('Pydos', './assets/mokepons_mokepon_ratigueya_attack.webp', 5);
+
 function startGame() {
-    let sectionSelectAtack = document.getElementById('select-atack');
     sectionSelectAtack.style.display = 'none';
-    let sectionRestart = document.getElementById('restart');
     sectionRestart.style.display = 'none';
 
-    let btnPetPlayer = document.getElementById('btn-pet');
     btnPetPlayer.addEventListener('click', selectPlayerPet);
 
-    let btnFire = document.getElementById('btn-fire');
     btnFire.addEventListener('click', fireAtack);
-    let btnWater = document.getElementById('btn-water');
     btnWater.addEventListener('click', waterAtack);
-    let btnGround = document.getElementById('btn-ground');
     btnGround.addEventListener('click', groundAtack);
 
-    let btnRestart = document.getElementById('btn-restart');
     btnRestart.addEventListener('click', restartGame);
 }
 
 function selectPlayerPet() {
     let pet = "";
-    let inputHipodoge = document.getElementById('hipodoge');
-    let inputCapipepo = document.getElementById('capipepo');
-    let inputRatigueya = document.getElementById('ratigueya');
-    let inputLangostelvis = document.getElementById('langostelvis');
-    let inputTucapalma = document.getElementById('tucapalma');
-    let inputPydos = document.getElementById('pydos');
-    let spanPlayerPet = document.getElementById('player-pet');
 
     if (inputHipodoge.checked) {
         pet = "Hipodoge";
@@ -57,7 +79,6 @@ function selectPlayerPet() {
 
 function selectEnemyPet() {
     let randomPetNumber = random(1, 6);
-    let spanEnemyPet = document.getElementById('enemy-pet');
 
     switch (randomPetNumber) {
         case 1:
@@ -128,8 +149,6 @@ function setEnemyAtack() {
 }
 
 function combat() {
-    let spanPetLife = document.getElementById('pet-life');
-    let spanEnemyLife = document.getElementById('enemy-life');
 
     if (playerAtack == enemyAtack) {
         createMessage("IT'S A TIE 😕");
@@ -162,10 +181,6 @@ function checkLifes() {
 }
 
 function createMessage(result) {
-    let resultP = document.getElementById('result');
-    let playerAtackDiv = document.getElementById('player-atack');
-    let enemyAtackDiv = document.getElementById('enemy-atack');
-
     let playerAtackP = document.createElement('P');
     let enemyAtackP = document.createElement('P');
 
@@ -192,14 +207,10 @@ function restartGame() {
 }
 
 function disableAtackButtons() {
-    let btnFire = document.getElementById('btn-fire');
     btnFire.disabled = true
-    let btnWater = document.getElementById('btn-water');
     btnWater.disabled = true
-    let btnGround = document.getElementById('btn-ground');
     btnGround.disabled = true
-
-    let sectionRestart = document.getElementById('restart');
+    
     sectionRestart.style.display = 'block';
 }
 
