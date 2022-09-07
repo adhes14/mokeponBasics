@@ -13,6 +13,8 @@ const cardsContainer = document.getElementById('cards-container');
 const sectionSelectPet = document.getElementById('select-pet');
 const atackButtons = document.getElementById('atack-buttons');
 const atackButtonsContainer = document.getElementById('atack-buttons-container');
+const mapSection = document.getElementById('map-section');
+const map = document.getElementById('map');
 
 let playerAtack = [];
 let enemyAtack = [];
@@ -30,6 +32,7 @@ let playerAtackIndex;
 let enemyAtackIndex;
 let playerVictories = 0;
 let enemyVictories = 0;
+let canvas = map.getContext("2d");
 
 class Mokepon {
     constructor(name, picture, life) {
@@ -75,6 +78,7 @@ ratigueya.atacks.push(
 function startGame() {
     sectionSelectAtack.style.display = 'none';
     sectionRestart.style.display = 'none';
+    mapSection.style.display = 'none';
 
     mokepones.forEach((mokepon) => {
         mokeponOptions = `
@@ -151,8 +155,23 @@ function selectEnemyPet() {
     enemyAtacks = mokepones[randomPetNumber].atacks;
     atackSequence();
 
-    sectionSelectAtack.style.display = 'flex';
+    // sectionSelectAtack.style.display = 'flex';
+    mapSection.style.display = 'flex';
     sectionSelectPet.style.display = 'none';
+
+    drawCanvas();
+}
+
+function drawCanvas() {
+    let capipepoPicture = new Image();
+    capipepoPicture.src = capipepo.picture;
+    canvas.drawImage(
+        capipepoPicture,
+        20,
+        40,
+        100,
+        100
+    )
 }
 
 function setEnemyAtack() {
